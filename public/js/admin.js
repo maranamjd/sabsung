@@ -1,4 +1,4 @@
-const url = 'http://sabsung.test/';
+const url = 'http://localhost/sabsung/';
 $(document).ready(function(){
 
   $(document).on('click', '#logout', function(){
