@@ -1,11 +1,11 @@
 <?php
   //pc
-  define('URL', 'http://sabsung.test/');
-  // define('URL', 'http://localhost/sabsung/');
+  // define('URL', 'http://sabsung.test/');
+  define('URL', 'http://localhost/sabsung/');
 
   //controller
   define('START_PAGE', 'home');
-  
+
   define('SYSTEM_NAME', 'sabsung');
 
   //db
