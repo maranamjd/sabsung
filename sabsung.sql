@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2019 at 06:36 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Generation Time: Jun 14, 2020 at 05:50 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,7 +34,7 @@ CREATE TABLE `cart` (
   `product_id` int(11) NOT NULL,
   `transaction_id` varchar(16) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
-  `checkedOut` int(1) NOT NULL DEFAULT '0'
+  `checkedOut` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -104,7 +104,7 @@ CREATE TABLE `category` (
   `category_id` int(11) NOT NULL,
   `image` varchar(45) NOT NULL,
   `description` varchar(64) NOT NULL,
-  `trash` int(1) NOT NULL DEFAULT '0'
+  `trash` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -130,7 +130,7 @@ CREATE TABLE `message` (
   `name` varchar(128) NOT NULL,
   `email` varchar(64) NOT NULL,
   `message` text NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0'
+  `status` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -154,7 +154,7 @@ CREATE TABLE `product` (
   `description` text NOT NULL,
   `price` double NOT NULL,
   `quantity` int(11) NOT NULL,
-  `trash` int(1) NOT NULL DEFAULT '0'
+  `trash` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -237,9 +237,9 @@ CREATE TABLE `transaction` (
   `name` varchar(128) NOT NULL,
   `email` varchar(45) NOT NULL,
   `contact` varchar(45) NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
   `status_date` date DEFAULT NULL,
-  `status` int(1) NOT NULL DEFAULT '0'
+  `status` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -279,8 +279,8 @@ CREATE TABLE `user` (
   `email` varchar(64) NOT NULL,
   `password` varchar(128) NOT NULL,
   `image` varchar(64) NOT NULL DEFAULT 'unknown.png',
-  `user_type` int(1) NOT NULL DEFAULT '0',
-  `status` int(1) NOT NULL DEFAULT '1'
+  `user_type` int(1) NOT NULL DEFAULT 0,
+  `status` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -288,12 +288,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `email`, `password`, `image`, `user_type`, `status`) VALUES
-('1', 'marana.michaelj@gmail.com', 'lPWZEGBpHaPzemqv5y3yjP0nWIhj7MGwtcDhz4NTuRY=', 'unknown.png', 1, 1),
-('20190310577', 'esme@gmail.com', 'AFkkWEaJeYf/qnDGRkmN66meYvxlEvNNWq44cbOcqwU=', 'b2e2722d71dfcc0fa5a2b345e9547fe2.jpg', 0, 1),
-('20191010461', 'mark@gmail.com', 'AFkkWEaJeYf/qnDGRkmN66meYvxlEvNNWq44cbOcqwU=', 'unknown.png', 0, 1),
-('30201909624', 'santos@gmail.com', 'AFkkWEaJeYf/qnDGRkmN66meYvxlEvNNWq44cbOcqwU=', '6015fde4e671cf46be5c97f7654e38ac.png', 0, 1),
-('30201909635', 'domingoador1@gmail.com', 'MV4i65YlZKdvX5X05Qxwu+t86zB3TsHLtkwVyJ+fdXg=', 'unknown.png', 0, 1),
-('30201909812', 'herrerahazel@gmail.com', 'OcqDZNN9rnrrcnXtXCG1f/PCfHlAsyAaSpbdd4ask48=', 'unknown.png', 0, 1);
+('1', 'marana.michaelj@gmail.com', 'ZEV0bzhaemF2L1ZTWnVOTVVzY210QT09Ojq6FBQ9YfV3ej0DxE9KZaYj', 'unknown.png', 1, 1),
+('20190310577', 'esme@gmail.com', 'ZEV0bzhaemF2L1ZTWnVOTVVzY210QT09Ojq6FBQ9YfV3ej0DxE9KZaYj', 'b2e2722d71dfcc0fa5a2b345e9547fe2.jpg', 0, 1),
+('20191010461', 'mark@gmail.com', 'ZEV0bzhaemF2L1ZTWnVOTVVzY210QT09Ojq6FBQ9YfV3ej0DxE9KZaYj', 'unknown.png', 0, 1),
+('30201909624', 'santos@gmail.com', 'ZEV0bzhaemF2L1ZTWnVOTVVzY210QT09Ojq6FBQ9YfV3ej0DxE9KZaYj', '6015fde4e671cf46be5c97f7654e38ac.png', 0, 1),
+('30201909635', 'domingoador1@gmail.com', 'ZEV0bzhaemF2L1ZTWnVOTVVzY210QT09Ojq6FBQ9YfV3ej0DxE9KZaYj', 'unknown.png', 0, 1),
+('30201909812', 'herrerahazel@gmail.com', 'ZEV0bzhaemF2L1ZTWnVOTVVzY210QT09Ojq6FBQ9YfV3ej0DxE9KZaYj', 'unknown.png', 0, 1);
 
 -- --------------------------------------------------------
 
