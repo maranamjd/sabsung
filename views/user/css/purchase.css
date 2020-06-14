@@ -1,0 +1,10 @@
+.cart-title span:nth-child(odd){
+  font-size: 2.5em;
+}
+.cart-title span:nth-child(even){
+  font-size: 2em;
+  font-weight: 400;
+}
+span[data-toggle=collapse], input[class=rating]{
+  cursor: pointer;
+}

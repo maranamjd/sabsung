@@ -1,0 +1,15 @@
+{
+  "name": "sabsung",
+  "version": "1.0.0",
+  "description": "Ecommerce Website Project",
+  "main": "index.js",
+  "dependencies": {
+    "sweetalert2": "^8.17.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Marana; Patricia Santos",
+  "license": "ISC"
+}

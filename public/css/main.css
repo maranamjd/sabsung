@@ -1,0 +1,25 @@
+
+#matches {
+    position: absolute;
+    overflow-y: scroll;
+    width: 35em;
+    max-height: 30em;
+    z-index:99;
+}
+#search{
+  width: 35em;
+}
+@media all and (max-width:800px) {
+  #search{
+    width: 100%;
+  }
+}
+a{
+  text-decoration: none;
+}
+.content{
+  background-color: #ededed;
+}
+.searchLink:hover{
+  background-color: rgba(229, 229, 229, 0.2);
+}

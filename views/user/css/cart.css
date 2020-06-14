@@ -1,0 +1,127 @@
+.cart-title span:nth-child(odd){
+  font-size: 2.5em;
+}
+
+span[data-toggle=collapse]{
+  cursor: pointer;
+}
+
+.cart-title span:nth-child(even){
+  font-size: 2em;
+  font-weight: 400;
+}
+input[type=checkbox]{
+  cursor: pointer;
+}
+.progressbar{
+  counter-reset: step;
+}
+.progressbar ul li{
+  list-style-type: none;
+  float: left;
+  width: 33.33%;
+  position: relative;
+  text-align: center;
+  color: #ddd;
+}
+.progressbar li::before{
+  content: counter(step);
+  counter-increment: step;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border: 2px solid #ccc;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.progressbar li::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: #ccc;
+  top: 20px;
+  left: -50%;
+  z-index: -1;
+}
+.progressbar li:first-child::after{
+  content: none;
+}
+.progressbar li.done{
+  color: #32cd32;
+}
+.progressbar li.done::before{
+  border-color: #32cd32;
+  background-color: #00ff00;
+  color: #eee;
+}
+.progressbar li.done + li::after{
+  background-color: #32cd32;
+}
+
+.progressbar li.active{
+  color: #4682b4;
+}
+.progressbar li.active::before{
+  border-color: #4682b4;
+  background-color: #b0c4de;
+  color: #eee;
+}
+.steps{
+  margin: 30px auto 20px auto;
+}
+
+.step{
+  display: none;
+  animation: stepSlide 1s ease-in;
+}
+.step:first-child {
+  display: block;
+
+}
+
+@keyframes stepSlide {
+  0%{
+    transform: skewX(3deg) translateX(-50px);
+    opacity: 0;
+  }
+  60%{
+    transform: translateX(0px);
+  }
+  62%{
+    transform: skewX(0deg) translateX(3px);
+  }
+  75%{
+    transform: skew(0deg) translate(0);
+  }
+  90%{
+    transform: skew(-2deg);
+    opacity: 1;
+  }
+  100%{
+    transform: skewX(0deg);
+  }
+}
+.payment a{
+  margin: 0px;
+  padding: 12px 10px;
+  width: 86px;
+  height: 50px;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid #ebebeb;
+  text-align: center;
+  text-transform: none;
+  transition: border-color .15s ease-out,  color .25s ease-out,  background-color .15s ease-out, box-shadow .15s ease-out;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+}
