@@ -12,13 +12,17 @@
     }
 
     public function encrypt($txt){
-      $cryptKey  = 'qJB0rGtIn5UB1xG03efyCp';
-      $qEncoded      = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), $txt, MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ) );
-      return( $qEncoded );
+      $encryption_key = 'qkwjdiw239&&jdafweihbrhnan&^%$ggdnawhd4njshjwuuO';
+      $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+      $encrypted = openssl_encrypt($txt, 'aes-256-cbc', $encryption_key, 0,
+      $iv);
+      return base64_encode($encrypted . '::' . $iv);
     }
     public function decrypt($hash){
-      $cryptKey  = 'qJB0rGtIn5UB1xG03efyCp';
-      $qDecoded      = rtrim( mcrypt_decrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), base64_decode( $hash ), MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ), "\0");
-      return( $qDecoded );
+      $encryption_key = 'qkwjdiw239&&jdafweihbrhnan&^%$ggdnawhd4njshjwuuO';
+      list($encrypted_data, $iv) = array_pad(explode('::', base64_decode($hash),
+      2),2,null);
+      return openssl_decrypt($encrypted_data, 'aes-256-cbc', $encryption_key, 0,
+      $iv);
     }
   }

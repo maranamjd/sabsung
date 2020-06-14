@@ -20,7 +20,7 @@
       }
     }
     public static function get($data){
-      $count = sizeof($data);
+      $count = is_array($data) ? count($data) : 0;
       if ($count < 2) {
         if (isset($_SESSION[$data])) {
           return $_SESSION[$data];

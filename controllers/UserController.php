@@ -221,18 +221,20 @@
     function login(){
       $user = new User();
       $email = $_POST['email'];
-      $password = Hash::encrypt($_POST['password']);
-      $result = $user->find("email = '$email' AND password = '$password' AND user_type = 0");
+      $password = $_POST['password'];
+      $result = $user->find("email = '$email' AND user_type = 0");
       if (count($result) > 0) {
-        if ($result['status'] == 0) {
-          echo json_encode(['res' => 0, 'message' => 'Account deactivated. Please contact Administrator.']);
-          return false;
+        if ($password == Hash::decrypt($result['password'])) {
+          if ($result['status'] == 0) {
+            echo json_encode(['res' => 0, 'message' => 'Account deactivated. Please contact Administrator.']);
+            return false;
+          }
+          Session::set([
+            'user_id' => $result['user_id'],
+            'user_type' => $result['user_type']
+          ]);
+          echo json_encode(['res' => 1, 'message' => 'Login Successful!']);
         }
-        Session::set([
-          'user_id' => $result['user_id'],
-          'user_type' => $result['user_type']
-        ]);
-        echo json_encode(['res' => 1, 'message' => 'Login Successful!']);
       }else {
         echo json_encode(['res' => 0, 'message' => 'User Email or Password do not match!']);
       }

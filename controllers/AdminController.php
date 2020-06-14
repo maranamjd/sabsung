@@ -253,14 +253,16 @@
     function login(){
       $user = new User();
       $email = $_POST['email'];
-      $password = Hash::encrypt($_POST['password']);
-      $result = $user->find("email = '$email' AND password = '$password' AND user_type = 1");
+      $password = $_POST['password'];
+      $result = $user->find("email = '$email' AND user_type = 1");
       if (count($result) > 0) {
-        Session::set([
-          'user_id' => $result['user_id'],
-          'user_type' => $result['user_type']
-        ]);
-        echo json_encode(['res' => 1, 'message' => 'Login Successful!']);
+        if ($password == Hash::decrypt($result['password'])) {
+          Session::set([
+            'user_id' => $result['user_id'],
+            'user_type' => $result['user_type']
+          ]);
+          echo json_encode(['res' => 1, 'message' => 'Login Successful!']);
+        }
       }else {
         echo json_encode(['res' => 0, 'message' => 'User Email or Password do not match!']);
       }
