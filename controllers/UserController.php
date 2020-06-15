@@ -234,6 +234,8 @@
             'user_type' => $result['user_type']
           ]);
           echo json_encode(['res' => 1, 'message' => 'Login Successful!']);
+        }else {
+          echo json_encode(['res' => 0, 'message' => 'User Email or Password do not match!']);
         }
       }else {
         echo json_encode(['res' => 0, 'message' => 'User Email or Password do not match!']);
