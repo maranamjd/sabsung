@@ -19,10 +19,10 @@ class Bootstrap
     //
     //
     //class
-    echo json_encode($url); die;
     $file = 'controllers/'. $url[0] .'controller.php';
     $controller = $url[0].'controller';
     if(file_exists($file)){
+      echo $file; die;
       require $file;
     }else {
       $this->error();
