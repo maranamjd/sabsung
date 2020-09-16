@@ -23,11 +23,10 @@ class Bootstrap
       return false;
     }
     $controller = new $controller;
-    echo 1;die;
     // $controller->loadModel($url[0]);
-
-
-//methods
+    
+    
+    //methods
     if (isset($url[2])){
       if (method_exists($controller, $url[1])) {
         $controller->{$url[1]}($url[2]);
@@ -36,6 +35,7 @@ class Bootstrap
         return false;
       }
     }else {
+      echo 1;die;
       $url[1] = isset($url[1]) ? $url[1] : 'index';
       if (method_exists($controller, $url[1])) {
         $controller->{$url[1]}();
