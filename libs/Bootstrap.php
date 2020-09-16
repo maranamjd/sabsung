@@ -9,6 +9,7 @@ class Bootstrap
   {
     Session::init();
     $url = isset($_GET['url']) ? $_GET['url'] : START_PAGE;
+    echo $url; die;
     $url = rtrim($url, '/');
     $url = explode('/', $url);
     // print_r($url);
