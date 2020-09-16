@@ -35,9 +35,9 @@ class Bootstrap
         return false;
       }
     }else {
-      echo 1;die;
       $url[1] = isset($url[1]) ? $url[1] : 'index';
       if (method_exists($controller, $url[1])) {
+        echo 1;die;
         $controller->{$url[1]}();
       }else {
         $this->error();
