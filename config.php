@@ -1,7 +1,7 @@
 <?php
   //pc
   // define('URL', 'http://sabsung.test/');
-  define('URL', 'https://calm-bastion-72401.herokuapp.com/sabsung/');
+  define('URL', 'https://calm-bastion-72401.herokuapp.com/');
 
   //controller
   define('START_PAGE', 'home');
