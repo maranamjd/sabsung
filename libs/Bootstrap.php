@@ -12,15 +12,9 @@ class Bootstrap
     $url = rtrim($url, '/');
     $url = explode('/', $url);
     // print_r($url);
-    // $route = new Route();
-    // $route->get('/', 'HomeController@index');
-    // $route->get('about', 'HomeController@edit');
-    // $route->get('about/edit', 'HomeController@index');
-    //
-    //
-    
+
     //class
-    $file = 'controllers/'. $url[0] .'controller.php';
+    $file = 'controllers/'. ucfirst($url[0]) .'Controller.php';
     $controller = $url[0].'controller';
     if(file_exists($file)){
       require $file;
@@ -28,6 +22,7 @@ class Bootstrap
       $this->error();
       return false;
     }
+    echo 1;die;
     $controller = new $controller;
     // $controller->loadModel($url[0]);
 
