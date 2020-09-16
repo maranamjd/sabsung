@@ -14,7 +14,7 @@ class Bootstrap
     // print_r($url);
 
     //class
-    $file = 'controllers/'. ucfirst($url[0]) .'Controller.php';
+    $file = 'controllers/'. $url[0] .'controller.php';
     $controller = $url[0].'controller';
     if(file_exists($file)){
       require $file;
