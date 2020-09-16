@@ -22,8 +22,8 @@ class Bootstrap
       $this->error();
       return false;
     }
-    echo 1;die;
     $controller = new $controller;
+    echo 1;die;
     // $controller->loadModel($url[0]);
 
 
