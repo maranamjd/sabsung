@@ -1,5 +1,5 @@
 // const url = 'http://sabsung.test/';
-const url = 'http://localhost/sabsung/';
+const url = 'hhttps://calm-bastion-72401.herokuapp.com/';
 
 $(document).ready(function(){
   const Toast = Swal.mixin({
