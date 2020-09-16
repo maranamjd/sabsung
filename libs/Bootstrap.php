@@ -22,7 +22,6 @@ class Bootstrap
     $file = 'controllers/'. ucfirst($url[0]) .'Controller.php';
     $controller = $url[0].'controller';
     if(file_exists($file)){
-      echo $file; die;
       require $file;
     }else {
       $this->error();
