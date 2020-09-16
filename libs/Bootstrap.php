@@ -9,7 +9,6 @@ class Bootstrap
   {
     Session::init();
     $url = isset($_GET['url']) ? $_GET['url'] : START_PAGE;
-    echo $url; die;
     $url = rtrim($url, '/');
     $url = explode('/', $url);
     // print_r($url);
@@ -17,9 +16,10 @@ class Bootstrap
     // $route->get('/', 'HomeController@index');
     // $route->get('about', 'HomeController@edit');
     // $route->get('about/edit', 'HomeController@index');
-//
-//
-//class
+    //
+    //
+    //class
+    echo $url; die;
     $file = 'controllers/'. $url[0] .'controller.php';
     $controller = $url[0].'controller';
     if(file_exists($file)){
