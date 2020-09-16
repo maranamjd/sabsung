@@ -18,16 +18,17 @@ class Bootstrap
     // $route->get('about/edit', 'HomeController@index');
     //
     //
+    
     //class
-    $file = 'controllers/'. ucfirst($url[0]) .'Controller.php';
-    $controller = ucfirst($url[0]).'Controller';
+    $file = 'controllers/'. $url[0] .'controller.php';
+    $controller = $url[0].'controller';
     if(file_exists($file)){
       require $file;
     }else {
       $this->error();
       return false;
     }
-    $controller = new HomeController();
+    $controller = new $controller;
     // $controller->loadModel($url[0]);
 
 
