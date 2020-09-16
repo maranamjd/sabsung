@@ -20,9 +20,9 @@ class Bootstrap
     //
     //class
     $file = 'controllers/'. ucfirst($url[0]) .'Controller.php';
-    $controller = $url[0].'controller';
+    $controller = ucfirst($url[0]).'Controller';
     if(file_exists($file)){
-      require URL.$file;
+      require $file;
     }else {
       $this->error();
       return false;
