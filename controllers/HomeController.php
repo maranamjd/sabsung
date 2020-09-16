@@ -17,24 +17,24 @@
     }
 
     function index(){
-      echo 1;die;
+      // echo 1;die;
 
-      if (Session::get('user_type') !== null) {
-        if (Session::get('user_type') == 0) {
-          $user = new User();
-          $user_info = new User_Info();
-          $cart = new Cart();
-          $user_id = Session::get('user_id');
-          $items = $cart->select(['*'], "user_id = $user_id AND checkedOut = 0");
-          $account = $user->find("user_id = '$user_id'");
-          $info    = $user_info->find("user_id = '$user_id'");
-          $this->view->user = ['account' => $account, 'info' => $info, 'cart' => $items];
-        }
-      }
-      $category = new Category();
-      $product = new Product();
-      $this->view->featured = $product->select(["MIN(price) as `price`", '(select description from category where category_id = product.category_id) as category', 'product_id', 'image', 'name', 'quantity', 'description'], "trash = 0 GROUP BY category_id");
-      $this->view->categories = $category->select(['*'], 'trash = 0');
+      // if (Session::get('user_type') !== null) {
+      //   if (Session::get('user_type') == 0) {
+      //     $user = new User();
+      //     $user_info = new User_Info();
+      //     $cart = new Cart();
+      //     $user_id = Session::get('user_id');
+      //     $items = $cart->select(['*'], "user_id = $user_id AND checkedOut = 0");
+      //     $account = $user->find("user_id = '$user_id'");
+      //     $info    = $user_info->find("user_id = '$user_id'");
+      //     $this->view->user = ['account' => $account, 'info' => $info, 'cart' => $items];
+      //   }
+      // }
+      // $category = new Category();
+      // $product = new Product();
+      // $this->view->featured = $product->select(["MIN(price) as `price`", '(select description from category where category_id = product.category_id) as category', 'product_id', 'image', 'name', 'quantity', 'description'], "trash = 0 GROUP BY category_id");
+      // $this->view->categories = $category->select(['*'], 'trash = 0');
       $this->view->js = ['home/js/default.js'];
       $this->view->css = ['home/css/default.css'];
       $this->view->render('home/index', 'user');
