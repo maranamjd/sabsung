@@ -17,6 +17,8 @@
     }
 
     function index(){
+      echo 1;die;
+
       if (Session::get('user_type') !== null) {
         if (Session::get('user_type') == 0) {
           $user = new User();

@@ -38,7 +38,6 @@ class Bootstrap
       $url[1] = isset($url[1]) ? $url[1] : 'index';
       if (method_exists($controller, $url[1])) {
         $controller->{$url[1]}();
-        echo 1;die;
       }else {
         $this->error();
         return false;
